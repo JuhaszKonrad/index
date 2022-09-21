@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td,tr{
+            border: 1px, solid grey;
+            border-collapse: separate;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+        
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Mennyiség</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <ul id="paros"></ul>
+    <script>
+        let szamok=[1,4,5,77,3,5,1,6,77]
+        console.log(szamok)
+        for(let i = 0;i<szamok.length;i++){
+            console.log(` index: ${i} - érték: ${szamok[i]}`)
+        }
+        for(let szam of szamok){
+            console.log(szam)
+        }
+
+        for(let i in szamok){
+            console.log(` index: ${i} - érték: ${szamok[i]}`)
+        }
+
+        let person ={
+            name: "Gyula",
+            birthYear: 2002,
+            email: "gymail@gmail.com"
+        }
+        for(let kulcs in person){
+            console.log(kulcs)
+        }
+
+        ///////////
+        let liStri=""
+        for(let szam of szamok){
+            liStri+=`<li>${szam}</li>`
+        }
+        document.querySelector('ul').innerHTML=liStri
+        console.log(liStri)
+        
+       let termekek=[
+        {nev:"alma",kg:100},
+        {nev:"körte",kg:50},
+        {nev:"dió",kg:10}
+       ] 
+
+        let tblStr=""
+        for(let termek of termekek){
+            console.log(termek.nev,termek.kg)
+            tblStr+=`<tr><td>${termek.nev}</td><td>${termek.kg}</td></tr>`
+        }
+        console.log(tblStr)
+        document.querySelector('tbody').innerHTML=tblStr
+
+        let egyediSzamok=[...new Set(szamok)]
+        console.log(szamok)
+        console.log(egyediSzamok)
+
+        let szamok2=[100,250]
+        let ujTomb=[...szamok,...szamok2]
+        console.log(ujTomb)
+
+        ujTomb=[...ujTomb,1000]
+        console.log(ujTomb)
+        ujTomb.push(2000)
+        console.log(ujTomb)
+        
+        //filter
+        let nagy=szamok.filter((szam)=>szam>=50)
+        console.log(nagy)
+
+        let paros=szamok.filter((szam)=>szam%2==0)
+        console.log(paros)
+        document.querySelector('#paros').innerHTML=paros
+        
+
+
+    </script>
+</body>
+</html>
